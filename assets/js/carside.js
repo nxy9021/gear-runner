@@ -12,7 +12,9 @@ class Car{
     _spriteWidth = 162;
     _spriteHeight = 49;
     _spriteFrames = 4;
-    _spriteX = this._spriteFrames;
+    _currentFrame = 0;
+    // _spriteX = this._spriteFrames;
+    _spriteY = 0;
 
 
     constructor(neutralImage, rightImage, leftImage){
@@ -34,11 +36,27 @@ class Car{
     }
 
     _draw (){
+        this._currentFrame ++;
+
+        // if (this._currentFrame >= this._spriteFrames - 1 ) {
+        //     this._currentFrame = 0;
+        // }
+        // else {
+        //     this._currentFrame++
+        // }
+
+        // this._currentFrame = ++this._currentFrame % this._spriteFrames;
+
+        if (this._currentFrame % this._spriteFrames ==0 ) {
+            this._currentFrame = 0;
+        };
+        const _spriteX = this._spriteWidth * this._currentFrame;
+
         ctx.beginPath();
         ctx.drawImage(
             this._image, 
-            this._spriteX, 
-            0,
+            _spriteX, 
+            this._spriteY,
             this._spriteWidth,
             this._spriteHeight,
             this.x,
