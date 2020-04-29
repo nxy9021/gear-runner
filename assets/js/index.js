@@ -11,6 +11,7 @@ const car = new Car(imgageAssets.car.neutral);
 
 // tick
 function tick(){
+    ctx.clearRect(0,0,canvas.width, canvas.height);
     car.tick();
 
     window.requestAnimationFrame(tick);
