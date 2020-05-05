@@ -22,7 +22,7 @@ class Car{
 
     constructor(carImageAssets, framerate){
         this._neutralImage = carImageAssets.neutral;
-        // this._upImage = carImageAssets.up;
+        this._upImage = carImageAssets.up;
         this._downImage = carImageAssets.down;
         this._currentAnimation = this._neutralImage;
 
