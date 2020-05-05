@@ -1,7 +1,8 @@
 // background display; car display; crack display;
 const imgageAssets = {
     bgImageAssets:{
-       stillBg: './assets/img/stillbg.jpg'
+       stillBg: './assets/img/stillbg.jpg',
+       frontBg: './assets/img/frontbg.png'
     },
     carImageAssets: {
         neutral: './assets/img/side.png',
@@ -16,6 +17,7 @@ const imgageAssets = {
 const canvas = document.querySelector('.game');
 const ctx = canvas.getContext('2d');
 const stillBackground = new StillBg(imgageAssets.bgImageAssets);
+const frontBackground = new FrontBg(imgageAssets.bgImageAssets);
 const car = new Car(imgageAssets.carImageAssets, 10);
 
 
@@ -26,6 +28,7 @@ const car = new Car(imgageAssets.carImageAssets, 10);
 function tick(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
     stillBackground.tick();
+    frontBackground.tick();
     car.tick();
     window.requestAnimationFrame(tick);
  };
