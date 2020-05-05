@@ -86,9 +86,15 @@ class Car{
 
     moveUp(){
         this.y -= this._moveY;
+        if (this.y <= 220 ){
+            this.y = 220;
+        };
     }
 
     moveDown(){
         this.y += this._moveY;
+        if (this.y >= 380 ){
+            this.y = 380;
+        };
     }
 }
