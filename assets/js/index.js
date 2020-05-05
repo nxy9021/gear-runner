@@ -11,7 +11,7 @@ const imgageAssets = {
 const canvas = document.querySelector('.game');
 const ctx = canvas.getContext('2d');
 const stillBackground = new StillBg(imgageAssets.bgImageAssets);
-const carDown = new Car(imgageAssets.carImageAssets);
+const car = new Car(imgageAssets.carImageAssets, 10);
 
 
 // car animations: done in carside.js
@@ -20,17 +20,25 @@ const carDown = new Car(imgageAssets.carImageAssets);
 // tick
 function tick(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
-    // car.tick();
     stillBackground.tick();
-    carDown.tick();
-
+    car.tick();
     window.requestAnimationFrame(tick);
  };
-tick();
 
 // car control
+function onKeyDown(event){
+    const key = event.key.toLowerCase();
+    console.log(event.key);
+    if (key === 's' || key === 'arrowdown'){
+        car.moveDown();
 
-document.addEventListener('key', onKeyPress);
+    } else if (key === 'w' || key === 'arrowup') {
+        car.moveUp();
+    }
+};
+document.addEventListener('keydown', onKeyDown);
+
+tick();
 
     // determine time interval for ticks in ms; print out time (framerate) times per second
 
