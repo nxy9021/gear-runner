@@ -1,22 +1,36 @@
+// car display
 const imgageAssets = {
-    car: {
-        neutral: './assets/img/side.png'
+    bgImageAssets:{
+       stillBg: './assets/img/stillbg.jpg'
+    },
+    carImageAssets: {
+        neutral: './assets/img/side.png',
+        down: './assets/img/down.png'
     }
 };
 const canvas = document.querySelector('.game');
 const ctx = canvas.getContext('2d');
-const car = new Car(imgageAssets.car.neutral);
+const stillBackground = new StillBg(imgageAssets.bgImageAssets);
+const carDown = new Car(imgageAssets.carImageAssets);
 
+
+// car animations: done in carside.js
 
 
 // tick
 function tick(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
-    car.tick();
+    // car.tick();
+    stillBackground.tick();
+    carDown.tick();
 
     window.requestAnimationFrame(tick);
  };
 tick();
+
+// car control
+
+document.addEventListener('key', onKeyPress);
 
     // determine time interval for ticks in ms; print out time (framerate) times per second
 
@@ -43,11 +57,11 @@ tick();
     //     this.totalAssest = numImgs;                          // total number of assets
 
 
-// car display
+
 // crack display
 // background display
 
-// car control
+
 // spawing crack
 // track movement
 // collision detection
@@ -55,7 +69,6 @@ tick();
 
 // difficulty curve
 
-// car animations
 // background animations
 
 // game start
