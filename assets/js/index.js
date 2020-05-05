@@ -17,7 +17,7 @@ const imgageAssets = {
 const canvas = document.querySelector('.game');
 const ctx = canvas.getContext('2d');
 const stillBackground = new StillBg(imgageAssets.bgImageAssets);
-const frontBackground = new FrontBg(imgageAssets.bgImageAssets);
+const frontBackground = new FrontBg(imgageAssets.bgImageAssets, 15, 800);
 const car = new Car(imgageAssets.carImageAssets, 10);
 
 
