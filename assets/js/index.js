@@ -1,4 +1,4 @@
-// car display
+// background display; car display; crack display;
 const imgageAssets = {
     bgImageAssets:{
        stillBg: './assets/img/stillbg.jpg'
@@ -6,7 +6,12 @@ const imgageAssets = {
     carImageAssets: {
         neutral: './assets/img/side.png',
         down: './assets/img/down.png'
-    }
+    },
+    crackImageAssets:{
+        style1:'./assets/img/crack1.png',
+        style2:'./assets/img/crack2.png',
+        style3:'./assets/img/crack3.png'
+    },
 };
 const canvas = document.querySelector('.game');
 const ctx = canvas.getContext('2d');
@@ -14,7 +19,7 @@ const stillBackground = new StillBg(imgageAssets.bgImageAssets);
 const car = new Car(imgageAssets.carImageAssets, 10);
 
 
-// car animations: done in carside.js
+// car animations: done in car.js
 
 
 // tick
@@ -39,36 +44,6 @@ function onKeyDown(event){
 document.addEventListener('keydown', onKeyDown);
 
 tick();
-
-    // determine time interval for ticks in ms; print out time (framerate) times per second
-
-
-    // let frameRate = 60;
-    // let frameTimeInterval = 1000/frameRate;
-    // function printTime () {
-    //  console.log(Date.now());
-    // };
-    // setInterval(printTime, frameTimeInterval);
-
-// image loader
-    // Loads all images
-    // let assetLoader = (function() {
-    //     // images dictionary
-    //     this.imgs        = {
-    //       'bg'            : 'imgs/bg.png',
-    //       'car'           : 'imgs/car.gif',
-    //       'crack1'        : 'imgs/slime.png',
-    //       'crack2'        : 'imgs/slime.png'
-    //     };
-    //     var assetsLoaded = 0;                                // how many assets have been loaded
-    //     var numImgs      = Object.keys(this.imgs).length;    // total number of image assets
-    //     this.totalAssest = numImgs;                          // total number of assets
-
-
-
-// crack display
-// background display
-
 
 // spawing crack
 // track movement
