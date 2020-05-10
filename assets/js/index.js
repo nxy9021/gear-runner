@@ -1,4 +1,4 @@
-// background display; car display; crack display;
+//Image Asset loading, canvas displaying
 const imgageAssets = {
     bgImageAssets:{
        stillBg: './assets/img/stillbg.jpg',
@@ -16,12 +16,17 @@ const imgageAssets = {
 };
 const canvas = document.querySelector('.game');
 const ctx = canvas.getContext('2d');
+
+// background animations
+
 const stillBackground = new StillBg(imgageAssets.bgImageAssets);
 const frontBackground = new FrontBg(imgageAssets.bgImageAssets, 15, 800);
-const car = new Car(imgageAssets.carImageAssets, 10);
 
+// crack display;
+const crack = new Crack(imgageAssets.crackImageAssets, 60, 10, 800);
 
-// car animations: done in car.js
+// car display; car animations;
+const car = new Car(imgageAssets.carImageAssets, 10, 800);
 
 
 // tick
@@ -29,14 +34,16 @@ function tick(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
     stillBackground.tick();
     frontBackground.tick();
+    crack.tick();
     car.tick();
+    console.log(crack.getPosition());
     window.requestAnimationFrame(tick);
  };
 
 // car control
 function onKeyDown(event){
     const key = event.key.toLowerCase();
-    console.log(event.key);
+    // console.log(event.key);
     if (key === 's' || key === 'arrowdown'){
         car.moveDown();
 
@@ -49,13 +56,13 @@ document.addEventListener('keydown', onKeyDown);
 tick();
 
 // spawing crack
+
 // track movement
 // collision detection
 // score counter
 
 // difficulty curve
 
-// background animations
 
 // game start
 // game end
