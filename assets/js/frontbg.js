@@ -8,13 +8,11 @@ class FrontBg{
     _animation;
     _canvasWidth;
 
-    _defaultImage;
-
 
     constructor(imageAssets, framerate, canvasWidth){
-        this._defaultImage = imageAssets.frontBg;
+        this._currentAnimation = imageAssets.frontBg;
         this._canvasWidth = canvasWidth;
-        this._imageLocation = this._defaultImage;
+        this._imageLocation = this._currentAnimation;
         this._setupAnimation(framerate);
         this._loadImage();
     }
