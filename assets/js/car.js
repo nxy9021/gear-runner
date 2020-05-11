@@ -30,6 +30,15 @@ class Car{
         this._loadImage();
     }
 
+    getPosition(){
+        return {
+            xInitial: this.x,
+            yInitial: this.y,
+            xFinal: this.x + this._image.width,
+            yFinal: this.y + this._image.height
+        }
+    }
+    
     _setupAnimation(framerate){
         this._animation = new AnimationFrame(framerate, () => this._upDate());
         this._animation.start();
