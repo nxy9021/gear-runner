@@ -36,7 +36,8 @@ function tick(){
     frontBackground.tick();
     crack.tick();
     car.tick();
-    console.log(crack.getPosition());
+    // console.log(crack.getPosition());
+    // console.log(car.getPosition());
     window.requestAnimationFrame(tick);
  };
 
@@ -55,10 +56,10 @@ document.addEventListener('keydown', onKeyDown);
 
 tick();
 
-// spawing crack
-
 // track movement
 // collision detection
+
+
 // score counter
 
 // difficulty curve
